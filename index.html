@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda3D - Tu Tienda Didáctica de Impresión 3D</title>
+    <title>CACHO6 - Tu Tienda Didáctica de Impresión 3D</title>
     <meta name="description" content="Tienda didáctica de impresión 3D con calculadora de costos, seguimiento en tiempo real y contenido educativo sobre materiales y procesos.">
     <meta name="keywords" content="impresión 3D, PLA, ABS, PETG, TPU, resina, FDM, SLA, calculadora costos">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://luchangos.github.io/Tienda3D/">
-    <meta property="og:title" content="Tienda3D - Impresión 3D Didáctica">
+    <meta property="og:title" content="CACHO6 - Impresión 3D Didáctica">
     <meta property="og:description" content="Aprende sobre impresión 3D y solicita tus impresiones con transparencia total de costos">
     <meta property="og:image" content="https://luchangos.github.io/Tienda3D/assets/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Tienda3D - Impresión 3D Didáctica">
+    <meta property="twitter:title" content="CACHO6 - Impresión 3D Didáctica">
     <meta property="twitter:description" content="Aprende sobre impresión 3D y solicita tus impresiones con transparencia total de costos">
     <meta property="twitter:image" content="https://luchangos.github.io/Tienda3D/assets/og-image.jpg">
 
@@ -32,8 +32,10 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Styles - Modernos Industriales -->
+    <link rel="stylesheet" href="css/modern-industrial.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/functional-sections.css">
     
     <!-- Theme Script (load early to prevent flash) -->
     <script src="js/theme.js"></script>
@@ -45,7 +47,7 @@
             <div class="loading-spinner">
                 <div class="spinner"></div>
             </div>
-            <h2>Tienda3D</h2>
+            <h2>CACHO6</h2>
             <p>Cargando tu experiencia de impresión 3D...</p>
         </div>
     </div>
@@ -55,7 +57,7 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <i class="fas fa-cube"></i>
-                <span>Tienda3D</span>
+                <span>CACHO6</span>
             </div>
             
             <div class="nav-menu" id="nav-menu">
@@ -110,7 +112,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">
                     Bienvenido a
-                    <span class="gradient-text">Tienda3D</span>
+                    <span class="gradient-text">CACHO6</span>
                 </h1>
                 <p class="hero-description">
                     Tu tienda didáctica de impresión 3D donde aprendes sobre materiales, 
@@ -264,20 +266,20 @@
                     </div>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="cliente_nombre">Nombre Completo *</label>
-                            <input type="text" id="cliente_nombre" required>
+                            <label class="form-label" for="cliente_nombre">Nombre Completo *</label>
+                            <input class="form-control" type="text" id="cliente_nombre" required>
                         </div>
                         <div class="form-group">
-                            <label for="cliente_email">Email *</label>
-                            <input type="email" id="cliente_email" required>
+                            <label class="form-label" for="cliente_email">Email *</label>
+                            <input class="form-control" type="email" id="cliente_email" required>
                         </div>
                         <div class="form-group">
-                            <label for="cliente_telefono">Teléfono</label>
-                            <input type="tel" id="cliente_telefono">
+                            <label class="form-label" for="cliente_telefono">Teléfono</label>
+                            <input class="form-control" type="tel" id="cliente_telefono">
                         </div>
                         <div class="form-group">
-                            <label for="cliente_direccion">Dirección de Envío</label>
-                            <textarea id="cliente_direccion" rows="2"></textarea>
+                            <label class="form-label" for="cliente_direccion">Dirección de Envío</label>
+                            <textarea class="form-control" id="cliente_direccion" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -308,8 +310,8 @@
                     </div>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="material_select">Material *</label>
-                            <select id="material_select" required>
+                            <label class="form-label" for="material_select">Material *</label>
+                            <select class="form-select" id="material_select" required>
                                 <option value="">Seleccionar material...</option>
                             </select>
                             <small class="help-text">
@@ -319,15 +321,15 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="color_select">Color *</label>
-                            <select id="color_select" required disabled>
+                            <label class="form-label" for="color_select">Color *</label>
+                            <select class="form-select" id="color_select" required disabled>
                                 <option value="">Primero selecciona un material</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="layer_height">Altura de Capa</label>
-                            <select id="layer_height">
+                            <label class="form-label" for="layer_height">Altura de Capa</label>
+                            <select class="form-select" id="layer_height">
                                 <option value="0.1">0.1mm - Alta calidad (más tiempo)</option>
                                 <option value="0.2" selected>0.2mm - Estándar (recomendado)</option>
                                 <option value="0.3">0.3mm - Rápido (menos detalle)</option>
@@ -335,8 +337,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="infill">Relleno</label>
-                            <select id="infill">
+                            <label class="form-label" for="infill">Relleno</label>
+                            <select class="form-select" id="infill">
                                 <option value="15">15% - Decorativo/Prototipo</option>
                                 <option value="20" selected>20% - Uso general</option>
                                 <option value="50">50% - Resistencia media</option>
@@ -345,8 +347,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="finish_select">Acabado</label>
-                            <select id="finish_select">
+                            <label class="form-label" for="finish_select">Acabado</label>
+                            <select class="form-select" id="finish_select">
                                 <option value="basico" selected>Básico - Sin postproceso</option>
                                 <option value="lijado">Lijado suave (+$2,500)</option>
                                 <option value="pintura">Pintura personalizada (+$5,000)</option>
@@ -355,8 +357,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="delivery_date">Fecha Objetivo</label>
-                            <input type="date" id="delivery_date">
+                            <label class="form-label" for="delivery_date">Fecha Objetivo</label>
+                            <input class="form-control" type="date" id="delivery_date">
                             <small class="help-text">Fecha deseada de entrega (no garantizada)</small>
                         </div>
                     </div>
@@ -370,13 +372,13 @@
                     </div>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="estimated_weight">Peso Estimado (gramos)</label>
-                            <input type="number" id="estimated_weight" min="1" step="0.1">
+                            <label class="form-label" for="estimated_weight">Peso Estimado (gramos)</label>
+                            <input class="form-control" type="number" id="estimated_weight" min="1" step="0.1">
                             <small class="help-text">Si conoces el peso aproximado de tu pieza</small>
                         </div>
                         <div class="form-group">
-                            <label for="estimated_time">Tiempo Estimado (horas)</label>
-                            <input type="number" id="estimated_time" min="0.1" step="0.1">
+                            <label class="form-label" for="estimated_time">Tiempo Estimado (horas)</label>
+                            <input class="form-control" type="number" id="estimated_time" min="0.1" step="0.1">
                             <small class="help-text">Tiempo aproximado de impresión</small>
                         </div>
                     </div>
@@ -475,14 +477,14 @@
                     <h3><i class="fas fa-search"></i> Buscar Pedido</h3>
                     <form id="tracking-form" class="tracking-form">
                         <div class="form-grid">
-                            <div class="form-group">
-                                <label for="tracking-code">Código de Pedido</label>
-                                <input type="text" id="tracking-code" placeholder="IMP3D-202408-ABC123" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="tracking-email">Email</label>
-                                <input type="email" id="tracking-email" placeholder="tu@email.com" required>
-                            </div>
+                        <div class="form-group">
+                            <label class="form-label" for="tracking-code">Código de Pedido</label>
+                            <input class="form-control" type="text" id="tracking-code" placeholder="IMP3D-202408-ABC123" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="tracking-email">Email</label>
+                            <input class="form-control" type="email" id="tracking-email" placeholder="tu@email.com" required>
+                        </div>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-search"></i>
@@ -538,7 +540,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3><i class="fas fa-cube"></i> Tienda3D</h3>
+                <h3><i class="fas fa-cube"></i> CACHO6</h3>
                 <p>Tu tienda didáctica de impresión 3D con transparencia total en costos y procesos.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -581,7 +583,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2024 Tienda3D. Desarrollado con <i class="fas fa-heart text-red"></i> para la comunidad 3D.</p>
+            <p>&copy; 2024 CACHO6. Desarrollado con <i class="fas fa-heart text-red"></i> para la comunidad 3D.</p>
         </div>
     </footer>
 
