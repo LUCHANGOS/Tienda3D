@@ -1,0 +1,36 @@
+{
+  "rules": {
+    "materials": {
+      ".read": true,
+      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+    },
+    "printers": {
+      ".read": true,
+      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+    },
+    "orders": {
+      ".read": "auth != null && (auth.uid === 'admin' || root.child('config/roles_admin').child(auth.uid).val() === true)",
+      ".write": "auth != null",
+      "$orderId": {
+        ".read": true,
+        ".write": "auth != null"
+      }
+    },
+    "orderLookup": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "config": {
+      ".read": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true",
+      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+    },
+    "catalog": {
+      ".read": true,
+      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+    },
+    "services": {
+      ".read": true,
+      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+    }
+  }
+}

@@ -2,13 +2,13 @@
 // Usando Firebase Realtime Database: https://tienda-3d-6f11c-default-rtdb.firebaseio.com/
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA...", // Reemplazar con tu API Key
+  apiKey: "AIzaSyC2_eqziS2uSYwByFXnaKYK3uqMMg3eTbo",
   authDomain: "tienda-3d-6f11c.firebaseapp.com",
   databaseURL: "https://tienda-3d-6f11c-default-rtdb.firebaseio.com",
   projectId: "tienda-3d-6f11c",
   storageBucket: "tienda-3d-6f11c.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abc123def456"
+  messagingSenderId: "677607305100",
+  appId: "1:677607305100:web:b8a0915b38997db85cf0a9"
 };
 
 // Detectar entorno
