@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda3D - Tu Tienda Didáctica de Impresión 3D</title>
+    <meta name="description" content="Tienda didáctica de impresión 3D con calculadora de costos, seguimiento en tiempo real y contenido educativo sobre materiales y procesos.">
+    <meta name="keywords" content="impresión 3D, PLA, ABS, PETG, TPU, resina, FDM, SLA, calculadora costos">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luchangos.github.io/Tienda3D/">
+    <meta property="og:title" content="Tienda3D - Impresión 3D Didáctica">
+    <meta property="og:description" content="Aprende sobre impresión 3D y solicita tus impresiones con transparencia total de costos">
+    <meta property="og:image" content="https://luchangos.github.io/Tienda3D/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Tienda3D - Impresión 3D Didáctica">
+    <meta property="twitter:description" content="Aprende sobre impresión 3D y solicita tus impresiones con transparencia total de costos">
+    <meta property="twitter:image" content="https://luchangos.github.io/Tienda3D/assets/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Theme Script (load early to prevent flash) -->
+    <script src="js/theme.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <h2>Tienda3D</h2>
+            <p>Cargando tu experiencia de impresión 3D...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-cube"></i>
+                <span>Tienda3D</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="#catalog" class="nav-link" data-section="catalog">
+                    <i class="fas fa-box-open"></i>
+                    <span>Catálogo</span>
+                </a>
+                <a href="#materials" class="nav-link" data-section="materials">
+                    <i class="fas fa-flask"></i>
+                    <span>Materiales</span>
+                </a>
+                <a href="#order" class="nav-link" data-section="order">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Pedido</span>
+                </a>
+                <a href="#seguimiento" class="nav-link" data-section="seguimiento">
+                    <i class="fas fa-search-location"></i>
+                    <span>Seguimiento</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="auth-button" class="auth-button">
+                    <i class="fas fa-user"></i>
+                    <span>Iniciar Sesión</span>
+                </button>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="section active hero-section">
+            <div class="hero-background">
+                <div class="hero-pattern"></div>
+            </div>
+            
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Bienvenido a
+                    <span class="gradient-text">Tienda3D</span>
+                </h1>
+                <p class="hero-description">
+                    Tu tienda didáctica de impresión 3D donde aprendes sobre materiales, 
+                    procesos y tecnologías mientras solicitas tus impresiones con total 
+                    transparencia de costos.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" data-navigate="catalog">
+                        <i class="fas fa-rocket"></i>
+                        Explorar Catálogo
+                    </button>
+                    <button class="btn btn-outline" data-navigate="materials">
+                        <i class="fas fa-graduation-cap"></i>
+                        Aprender Materiales
+                    </button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="5">0</div>
+                        <div class="stat-label">Materiales</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">Tecnologías</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">% Transparencia</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Contenido Didáctico</h3>
+                    <p>Fichas completas de materiales con propiedades, temperaturas, tolerancias y limitaciones explicadas de forma simple.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Costos Transparentes</h3>
+                    <p>Calculadora detallada que muestra el desglose completo: material, energía, mantenimiento y postproceso.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Seguimiento Real</h3>
+                    <p>Timeline visual con progreso en tiempo real desde el diseño hasta la entrega de tu pieza.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATALOG SECTION -->
+        <section id="catalog" class="section">
+            <div class="section-header">
+                <h2>Catálogo de Servicios</h2>
+                <p>Explora nuestros servicios de impresión 3D organizados por material y tecnología</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="filter-material">Material:</label>
+                    <select id="filter-material" class="filter-select">
+                        <option value="">Todos los materiales</option>
+                        <option value="PLA">PLA - Fácil y versátil</option>
+                        <option value="ABS">ABS - Resistente al calor</option>
+                        <option value="PETG">PETG - Químicamente resistente</option>
+                        <option value="TPU">TPU - Flexible y elástico</option>
+                        <option value="Resina">Resina - Alta precisión</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="filter-technology">Tecnología:</label>
+                    <select id="filter-technology" class="filter-select">
+                        <option value="">Todas las tecnologías</option>
+                        <option value="FDM">FDM - Filamento fundido</option>
+                        <option value="SLA">SLA/Resina - Estereolitografía</option>
+                        <option value="SLS">SLS - Sinterizado láser</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="filter-finish">Acabado:</label>
+                    <select id="filter-finish" class="filter-select">
+                        <option value="">Todos los acabados</option>
+                        <option value="basico">Básico - Sin postproceso</option>
+                        <option value="lijado">Lijado - Superficie suave</option>
+                        <option value="pintura">Pintura - Color personalizado</option>
+                        <option value="uv">UV - Curado adicional</option>
+                    </select>
+                </div>
+
+                <button id="clear-filters" class="btn btn-secondary">
+                    <i class="fas fa-eraser"></i>
+                    Limpiar Filtros
+                </button>
+            </div>
+
+            <!-- Services Grid -->
+            <div id="services-grid" class="services-grid">
+                <!-- Los servicios se cargan dinámicamente -->
+                <div class="loading-placeholder">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando servicios...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATERIALS SECTION -->
+        <section id="materials" class="section">
+            <div class="section-header">
+                <h2>Guía Didáctica de Materiales</h2>
+                <p>Aprende sobre las propiedades, aplicaciones y limitaciones de cada material de impresión 3D</p>
+            </div>
+
+            <div class="materials-intro">
+                <div class="intro-card">
+                    <h3><i class="fas fa-lightbulb"></i> ¿Por qué es importante el material?</h3>
+                    <p>La elección del material determina las propiedades mecánicas, térmicas y químicas de tu pieza final. Cada material tiene características únicas que lo hacen ideal para diferentes aplicaciones.</p>
+                </div>
+            </div>
+
+            <div id="materials-container" class="materials-container">
+                <!-- Las fichas de materiales se cargan dinámicamente -->
+            </div>
+        </section>
+
+        <!-- ORDER SECTION -->
+        <section id="order" class="section">
+            <div class="section-header">
+                <h2>Crear Pedido Personalizado</h2>
+                <p>Configure los parámetros de su impresión y obtenga un presupuesto detallado</p>
+            </div>
+
+            <form id="order-form" class="order-form">
+                <!-- Cliente Info -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-user"></i>
+                        <h3>Información del Cliente</h3>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="cliente_nombre">Nombre Completo *</label>
+                            <input type="text" id="cliente_nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cliente_email">Email *</label>
+                            <input type="email" id="cliente_email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cliente_telefono">Teléfono</label>
+                            <input type="tel" id="cliente_telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="cliente_direccion">Dirección de Envío</label>
+                            <textarea id="cliente_direccion" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Archivo 3D -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-cube"></i>
+                        <h3>Archivo de Impresión</h3>
+                    </div>
+                    <div class="file-upload-area" id="file-upload">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <div class="upload-text">
+                            <h4>Sube tu archivo STL/OBJ</h4>
+                            <p>Arrastra aquí tu archivo o <button type="button" class="btn-link">selecciona uno</button></p>
+                            <small>Máximo 50MB - Formatos: STL, OBJ, 3MF</small>
+                        </div>
+                        <input type="file" id="file-input" accept=".stl,.obj,.3mf" hidden>
+                    </div>
+                    <div id="file-preview" class="file-preview hidden"></div>
+                </div>
+
+                <!-- Configuración -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-cog"></i>
+                        <h3>Configuración de Impresión</h3>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="material_select">Material *</label>
+                            <select id="material_select" required>
+                                <option value="">Seleccionar material...</option>
+                            </select>
+                            <small class="help-text">
+                                <i class="fas fa-info-circle"></i>
+                                ¿No sabes cuál elegir? <button type="button" class="btn-link" data-navigate="materials">Ver guía de materiales</button>
+                            </small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="color_select">Color *</label>
+                            <select id="color_select" required disabled>
+                                <option value="">Primero selecciona un material</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="layer_height">Altura de Capa</label>
+                            <select id="layer_height">
+                                <option value="0.1">0.1mm - Alta calidad (más tiempo)</option>
+                                <option value="0.2" selected>0.2mm - Estándar (recomendado)</option>
+                                <option value="0.3">0.3mm - Rápido (menos detalle)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="infill">Relleno</label>
+                            <select id="infill">
+                                <option value="15">15% - Decorativo/Prototipo</option>
+                                <option value="20" selected>20% - Uso general</option>
+                                <option value="50">50% - Resistencia media</option>
+                                <option value="100">100% - Máxima resistencia</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="finish_select">Acabado</label>
+                            <select id="finish_select">
+                                <option value="basico" selected>Básico - Sin postproceso</option>
+                                <option value="lijado">Lijado suave (+$2,500)</option>
+                                <option value="pintura">Pintura personalizada (+$5,000)</option>
+                                <option value="uv">Curado UV adicional (+$3,000)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="delivery_date">Fecha Objetivo</label>
+                            <input type="date" id="delivery_date">
+                            <small class="help-text">Fecha deseada de entrega (no garantizada)</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estimación Manual -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-ruler-combined"></i>
+                        <h3>Estimación de Pieza</h3>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="estimated_weight">Peso Estimado (gramos)</label>
+                            <input type="number" id="estimated_weight" min="1" step="0.1">
+                            <small class="help-text">Si conoces el peso aproximado de tu pieza</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="estimated_time">Tiempo Estimado (horas)</label>
+                            <input type="number" id="estimated_time" min="0.1" step="0.1">
+                            <small class="help-text">Tiempo aproximado de impresión</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cost Calculator -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Calculadora de Costos</h3>
+                    </div>
+                    
+                    <div class="calculator-container">
+                        <div class="cost-breakdown" id="cost-breakdown">
+                            <div class="cost-item">
+                                <span class="cost-label">
+                                    <i class="fas fa-fill-drip"></i>
+                                    Costo del Material:
+                                </span>
+                                <span class="cost-value" id="cost-material">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">
+                                    <i class="fas fa-bolt"></i>
+                                    Costo de Energía:
+                                </span>
+                                <span class="cost-value" id="cost-energy">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">
+                                    <i class="fas fa-tools"></i>
+                                    Mantenimiento:
+                                </span>
+                                <span class="cost-value" id="cost-maintenance">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">
+                                    <i class="fas fa-paint-brush"></i>
+                                    Postproceso:
+                                </span>
+                                <span class="cost-value" id="cost-postprocess">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    Logística:
+                                </span>
+                                <span class="cost-value" id="cost-logistics">$0</span>
+                            </div>
+                            <div class="cost-total">
+                                <span class="cost-label">
+                                    <strong>Total Estimado:</strong>
+                                </span>
+                                <span class="cost-value total" id="cost-total">
+                                    <strong>$0</strong>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="cost-actions">
+                            <button type="button" id="calculate-cost" class="btn btn-secondary">
+                                <i class="fas fa-calculator"></i>
+                                Calcular Costo
+                            </button>
+                            <button type="button" id="show-details" class="btn btn-outline">
+                                <i class="fas fa-info-circle"></i>
+                                Ver Desglose
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Pedido
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        <i class="fas fa-redo"></i>
+                        Limpiar Formulario
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- SEGUIMIENTO SECTION -->
+        <section id="seguimiento" class="section">
+            <div class="section-header">
+                <h2>Seguimiento de Pedido</h2>
+                <p>Consulta el estado y progreso de tu pedido en tiempo real</p>
+            </div>
+
+            <div class="tracking-search">
+                <div class="search-container">
+                    <h3><i class="fas fa-search"></i> Buscar Pedido</h3>
+                    <form id="tracking-form" class="tracking-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="tracking-code">Código de Pedido</label>
+                                <input type="text" id="tracking-code" placeholder="IMP3D-202408-ABC123" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tracking-email">Email</label>
+                                <input type="email" id="tracking-email" placeholder="tu@email.com" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Buscar Pedido
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="tracking-results" class="tracking-results hidden">
+                <!-- Los resultados se muestran aquí dinámicamente -->
+            </div>
+        </section>
+
+        <!-- ADMIN SECTION (Hidden by default) -->
+        <section id="admin" class="section hidden">
+            <div class="section-header">
+                <h2>Panel de Administración</h2>
+                <p>Gestión completa de pedidos, inventario y configuración del sistema</p>
+            </div>
+
+            <div class="admin-tabs">
+                <button class="tab-button active" data-tab="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </button>
+                <button class="tab-button" data-tab="orders">
+                    <i class="fas fa-list-alt"></i>
+                    Pedidos
+                </button>
+                <button class="tab-button" data-tab="materials">
+                    <i class="fas fa-flask"></i>
+                    Materiales
+                </button>
+                <button class="tab-button" data-tab="printers">
+                    <i class="fas fa-print"></i>
+                    Impresoras
+                </button>
+                <button class="tab-button" data-tab="config">
+                    <i class="fas fa-cog"></i>
+                    Configuración
+                </button>
+            </div>
+
+            <div class="admin-content" id="admin-content">
+                <!-- El contenido se carga dinámicamente según la pestaña -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-cube"></i> Tienda3D</h3>
+                <p>Tu tienda didáctica de impresión 3D con transparencia total en costos y procesos.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/LUCHANGOS/Tienda3D" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#catalog">Catálogo</a></li>
+                    <li><a href="#materials">Materiales</a></li>
+                    <li><a href="#order">Hacer Pedido</a></li>
+                    <li><a href="#seguimiento">Seguimiento</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="mailto:soporte@tienda3d.com">soporte@tienda3d.com</a></li>
+                    <li><a href="tel:+56912345678">+56 9 1234 5678</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Tecnología</h4>
+                <p>Desarrollado con:</p>
+                <ul>
+                    <li>Firebase Realtime Database</li>
+                    <li>GitHub Pages</li>
+                    <li>Vanilla JavaScript</li>
+                    <li>CSS Grid & Flexbox</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tienda3D. Desarrollado con <i class="fas fa-heart text-red"></i> para la comunidad 3D.</p>
+        </div>
+    </footer>
+
+    <!-- Modals Container -->
+    <div id="modal-container" class="modal-container"></div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/components/auth.js"></script>
+    <script src="js/components/catalog.js"></script>
+    <script src="js/components/materials.js"></script>
+    <script src="js/components/order.js"></script>
+    <script src="js/components/tracking.js"></script>
+    <script src="js/components/admin.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => console.log('SW registrado:', registration))
+                    .catch(error => console.log('SW falló:', error));
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Función para verificar si el usuario es admin
+    function isAdmin() {
+      return request.auth != null && 'admin' in request.auth.token && request.auth.token.admin == true;
+    }
+    
+    // Función para verificar tipos de archivo permitidos
+    function isValidFileType() {
+      return resource.contentType.matches('.*/(stl|obj|3mf).*') || 
+             resource.contentType.matches('application/sla') ||
+             request.resource.contentType.matches('.*/(stl|obj|3mf).*') ||
+             request.resource.contentType.matches('application/sla');
+    }
+    
+    // Función para verificar tamaño de archivo (máximo 50MB)
+    function isValidFileSize() {
+      return request.resource.size <= 50 * 1024 * 1024;
+    }
+    
+    // === ARCHIVOS DE PEDIDOS (STL/OBJ) ===
+    match /orders/{orderId}/uploads/{fileName} {
+      // Solo el dueño del pedido puede subir archivos, admin puede todo
+      allow read: if isAdmin() || 
+                     (request.auth != null && 
+                      exists(/databases/(default)/documents/orders/$(orderId)) &&
+                      get(/databases/(default)/documents/orders/$(orderId)).data.cliente_email == request.auth.token.email);
+      
+      allow write: if (isAdmin() || 
+                       (request.auth != null && 
+                        exists(/databases/(default)/documents/orders/$(orderId)) &&
+                        get(/databases/(default)/documents/orders/$(orderId)).data.cliente_email == request.auth.token.email)) &&
+                      isValidFileType() &&
+                      isValidFileSize();
+      
+      allow delete: if isAdmin();
+    }
+    
+    // === ARCHIVOS PÚBLICOS (catálogo, imágenes de materiales, etc.) ===
+    match /public/{allPaths=**} {
+      allow read: if true; // Públicos para el catálogo
+      allow write: if isAdmin();
+    }
+    
+    // === ARCHIVOS DE REPORTES (Solo admin) ===
+    match /reports/{reportId}/{fileName} {
+      allow read, write: if isAdmin();
+    }
+    
+    // === ARCHIVOS TEMPORALES (con TTL automático) ===
+    match /temp/{userId}/{fileName} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      // Nota: Implementar limpieza automática con Cloud Functions
+    }
+    
+    // === ARCHIVOS DE RESPALDO ===
+    match /backups/{allPaths=**} {
+      allow read, write: if isAdmin();
+    }
+    
+    // === AVATARES Y PERFILES ===
+    match /users/{userId}/avatar/{fileName} {
+      allow read: if true; // Avatares públicos
+      allow write: if request.auth != null && request.auth.uid == userId;
+      allow delete: if isAdmin() || (request.auth != null && request.auth.uid == userId);
+    }
+    
+    // === IMÁGENES DE PRODUCTOS TERMINADOS ===
+    match /orders/{orderId}/gallery/{fileName} {
+      allow read: if isAdmin() || 
+                     (request.auth != null && 
+                      exists(/databases/(default)/documents/orders/$(orderId)) &&
+                      get(/databases/(default)/documents/orders/$(orderId)).data.cliente_email == request.auth.token.email);
+      allow write: if isAdmin();
+    }
+    
+    // Denegar todo lo demás
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
