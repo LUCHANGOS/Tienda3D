@@ -1,37 +1,41 @@
-// Sistema de Gestión de Pedidos - Tienda3D
+/**
+ * Sistema de Gestión de Pedidos y Calculadora - Tienda3D
+ */
 class OrderManager {
   constructor() {
-    this.currentOrder = {
-      id: null,
-      customerInfo: {},
-      services: [],
-      files: [],
-      specifications: {},
-      pricing: {
-        subtotal: 0,
-        shipping: 0,
-        taxes: 0,
-        total: 0
-      },
-      status: 'draft',
-      createdAt: null,
-      estimatedDelivery: null
+    this.materials = {
+      PLA: { cost: 25, colors: ['Blanco', 'Negro', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Transparente'] },
+      ABS: { cost: 30, colors: ['Blanco', 'Negro', 'Rojo', 'Azul', 'Verde'] },
+      PETG: { cost: 35, colors: ['Transparente', 'Blanco', 'Negro', 'Azul'] },
+      TPU: { cost: 50, colors: ['Negro', 'Transparente', 'Rojo'] },
+      Resina: { cost: 80, colors: ['Gris', 'Transparente', 'Negro', 'Blanco'] }
     };
     
-    this.shippingRates = {
-      standard: { price: 5, days: 5 },
-      express: { price: 15, days: 2 },
-      overnight: { price: 25, days: 1 }
+    this.energyCostPerGram = 50; // CLP por gramo
+    this.maintenanceCostPerGram = 75; // CLP por gramo
+    this.logisticsCost = 2500; // CLP fijo
+    
+    this.postProcessCosts = {
+      basico: 0,
+      lijado: 2500,
+      pintura: 5000,
+      uv: 3000
     };
     
+    this.initialized = false;
     this.init();
   }
 
   async init() {
-    this.setupEventListeners();
-    this.loadSelectedService();
-    this.updatePricing();
-    this.setupFileUpload();
+    try {
+      this.setupEventListeners();
+      this.populateMaterialOptions();
+      this.setupCalculator();
+      this.initialized = true;
+      console.log('OrderManager inicializado correctamente');
+    } catch (error) {
+      console.error('Error inicializando OrderManager:', error);
+    }
   }
 
   setupEventListeners() {
