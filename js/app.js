@@ -293,3 +293,40 @@ window.addEventListener('load', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Tienda3DApp;
 }
+
+// Función global para mostrar el panel de administración
+function showAdminSection() {
+    // Mostrar la sección admin
+    const adminSection = document.getElementById('admin');
+    if (adminSection) {
+        adminSection.classList.remove('hidden');
+        
+        // Usar la función de navegación de la app si está disponible
+        if (window.tienda3DApp) {
+            window.tienda3DApp.navigateToSection('admin');
+        } else {
+            // Navegación manual como fallback
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            adminSection.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Inicializar el panel de administración usando la función global
+        try {
+            if (window.initializeAdminPanel) {
+                window.initializeAdminPanel();
+            } else if (typeof AdminPanel !== 'undefined') {
+                // Fallback al método anterior
+                window.adminPanel = new AdminPanel();
+            } else {
+                console.warn('AdminPanel no está disponible');
+                showToast('Error: Panel de administración no disponible', 'error');
+            }
+        } catch (error) {
+            console.error('Error al inicializar el panel de administración:', error);
+            showToast('Error al inicializar el panel de administración', 'error');
+        }
+    }
+}

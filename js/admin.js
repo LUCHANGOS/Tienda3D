@@ -1668,11 +1668,17 @@ class AdminPanel {
   }
 }
 
-// Inicializar el panel de administración solo cuando esté en la sección admin
+// Inicializar el panel de administración globalmente para que esté disponible
 let adminPanel;
-document.addEventListener('DOMContentLoaded', () => {
-  // Solo inicializar si estamos en la sección de admin
-  if (document.getElementById('admin-section')) {
+
+// Función para inicializar el admin panel cuando sea necesario
+function initializeAdminPanel() {
+  if (!adminPanel && document.getElementById('admin')) {
     adminPanel = new AdminPanel();
   }
-});
+  return adminPanel;
+}
+
+// Hacer AdminPanel disponible globalmente
+window.AdminPanel = AdminPanel;
+window.initializeAdminPanel = initializeAdminPanel;
