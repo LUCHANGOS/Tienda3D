@@ -120,6 +120,11 @@ class Tienda3DApp {
             await new Promise(resolve => setTimeout(resolve, 1000));
             
             // Inicializar módulos
+            if (typeof MaterialsManager !== 'undefined') {
+                window.materialsManager = new MaterialsManager();
+                console.log('Sistema de materiales inicializado');
+            }
+            
             if (typeof CatalogManager !== 'undefined') {
                 window.catalogManager = new CatalogManager();
                 console.log('Catálogo inicializado');
