@@ -196,6 +196,78 @@ body {
   overflow-x: hidden;
 }
 
+/* ===== SECCIONES Y LAYOUT ===== */
+.main-content {
+  padding-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.section {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  padding: var(--space-8) 0;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-12);
+  padding: 0 var(--container-padding);
+}
+
+.section-header h2 {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  font-weight: var(--weight-extrabold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-tight);
+  background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-header p {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ===== HERO SECTION ESPECÍFICO ===== */
+.hero-section {
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ===== CONTENIDO DE SECCIONES ===== */
+.section:not(.hero-section) > * {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section:not(.hero-section) {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+/* Espaciado específico para las secciones */
+#catalog, #materials, #order, #seguimiento, #admin {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+
 /* ===== COMPONENTES BASE ===== */
 
 /* Botones industriales modernos */
