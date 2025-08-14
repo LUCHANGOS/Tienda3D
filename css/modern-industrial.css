@@ -205,9 +205,10 @@ body {
 .section {
   display: none;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
+  transform: translateY(0);
+  transition: all 0.2s ease;
   padding: 0;
+  margin: 0;
   min-height: auto;
   position: relative;
 }
@@ -221,12 +222,13 @@ body {
 .section-header {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto var(--space-2);
-  padding: var(--space-2) var(--container-padding);
+  margin: 0 auto 0;
+  padding: var(--space-3) var(--container-padding) var(--space-2);
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  border-radius: var(--radius-lg);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
+  border-top: none;
 }
 
 .section-header h2 {
@@ -595,6 +597,25 @@ h6 { font-size: var(--text-lg); font-weight: var(--weight-medium); }
   min-height: 400px;
 }
 
+/* OVERRIDE FORZOSO - Eliminar cualquier espaciado superior */
+#catalog .section-header,
+#materials .section-header,
+#order .section-header,
+#seguimiento .section-header,
+#admin .section-header {
+  margin-top: 0 !important;
+  padding-top: var(--space-2) !important;
+}
+
+#catalog .filters-container,
+#materials .materials-intro,
+#order .order-form,
+#seguimiento .tracking-search,
+#admin .admin-tabs {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 /* Filtros mejorados */
 .filters-container {
   background: var(--bg-secondary);
@@ -602,6 +623,7 @@ h6 { font-size: var(--text-lg); font-weight: var(--weight-medium); }
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   margin-bottom: var(--space-4);
+  margin-top: 0 !important;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
