@@ -1,0 +1,323 @@
+{
+  "services": {
+    "pla-basic": {
+      "id": "pla-basic",
+      "name": "Impresión PLA Básica",
+      "material": "PLA",
+      "technology": "FDM",
+      "finish": "basico",
+      "description": "Perfecto para prototipos y piezas decorativas. Material biodegradable y fácil de imprimir.",
+      "price": 25,
+      "currency": "USD",
+      "layerHeight": "0.2mm",
+      "infill": "20%",
+      "estimatedTime": "4-6 horas",
+      "colors": ["Blanco", "Negro", "Rojo", "Azul", "Verde"],
+      "properties": {
+        "strength": 3,
+        "flexibility": 2,
+        "detail": 4,
+        "durability": 3
+      }
+    },
+    "abs-engineering": {
+      "id": "abs-engineering",
+      "name": "Impresión ABS Ingeniería",
+      "material": "ABS",
+      "technology": "FDM",
+      "finish": "lijado",
+      "description": "Resistente al calor y impactos. Ideal para piezas funcionales y herramientas.",
+      "price": 35,
+      "currency": "USD",
+      "layerHeight": "0.15mm",
+      "infill": "30%",
+      "estimatedTime": "5-8 horas",
+      "colors": ["Negro", "Blanco", "Gris"],
+      "properties": {
+        "strength": 5,
+        "flexibility": 4,
+        "detail": 3,
+        "durability": 5
+      }
+    },
+    "petg-chemical": {
+      "id": "petg-chemical",
+      "name": "Impresión PETG Resistencia Química",
+      "material": "PETG",
+      "technology": "FDM",
+      "finish": "uv",
+      "description": "Excelente resistencia química y transparencia. Para aplicaciones médicas y alimentarias.",
+      "price": 45,
+      "currency": "USD",
+      "layerHeight": "0.2mm",
+      "infill": "25%",
+      "estimatedTime": "6-9 horas",
+      "colors": ["Transparente", "Blanco", "Negro"],
+      "properties": {
+        "strength": 4,
+        "flexibility": 4,
+        "detail": 4,
+        "durability": 5
+      }
+    },
+    "tpu-flexible": {
+      "id": "tpu-flexible",
+      "name": "Impresión TPU Flexible",
+      "material": "TPU",
+      "technology": "FDM",
+      "finish": "basico",
+      "description": "Material elastomérico para juntas, carcasas flexibles y productos wearables.",
+      "price": 55,
+      "currency": "USD",
+      "layerHeight": "0.3mm",
+      "infill": "15%",
+      "estimatedTime": "8-12 horas",
+      "colors": ["Negro", "Transparente", "Rojo"],
+      "properties": {
+        "strength": 3,
+        "flexibility": 5,
+        "detail": 2,
+        "durability": 4
+      }
+    },
+    "resin-precision": {
+      "id": "resin-precision",
+      "name": "Impresión Resina Alta Precisión",
+      "material": "Resina",
+      "technology": "SLA",
+      "finish": "uv",
+      "description": "Máxima precisión y detalles finos. Ideal para joyería, miniaturas y prototipos detallados.",
+      "price": 65,
+      "currency": "USD",
+      "layerHeight": "0.05mm",
+      "infill": "100%",
+      "estimatedTime": "3-5 horas",
+      "colors": ["Gris", "Negro", "Transparente"],
+      "properties": {
+        "strength": 3,
+        "flexibility": 1,
+        "detail": 5,
+        "durability": 3
+      }
+    }
+  },
+  "materials": {
+    "pla": {
+      "id": "pla",
+      "name": "PLA (Ácido Poliláctico)",
+      "type": "Termoplástico biodegradable",
+      "description": "Material ideal para principiantes. Biodegradable, fácil de imprimir y con buena calidad superficial.",
+      "properties": {
+        "printTemp": "190-220°C",
+        "bedTemp": "50-70°C",
+        "density": "1.24 g/cm³",
+        "tensileStrength": "50 MPa",
+        "flexuralStrength": "80 MPa",
+        "heatDeflection": "60°C"
+      },
+      "advantages": [
+        "Biodegradable y eco-friendly",
+        "Fácil de imprimir",
+        "Buena calidad superficial",
+        "Amplia gama de colores",
+        "Olor agradable durante la impresión"
+      ],
+      "disadvantages": [
+        "Baja resistencia al calor",
+        "Frágil bajo impacto",
+        "No apto para exteriores",
+        "Sensible a la humedad"
+      ],
+      "applications": [
+        "Prototipos conceptuales",
+        "Objetos decorativos",
+        "Juguetes educativos",
+        "Modelos arquitectónicos",
+        "Piezas no funcionales"
+      ],
+      "colors": ["Blanco", "Negro", "Rojo", "Azul", "Verde", "Amarillo", "Naranja", "Púrpura"],
+      "pricePerKg": 25
+    },
+    "abs": {
+      "id": "abs",
+      "name": "ABS (Acrilonitrilo Butadieno Estireno)",
+      "type": "Termoplástico resistente",
+      "description": "Material de ingeniería con excelente resistencia mecánica y térmica. Usado en aplicaciones industriales.",
+      "properties": {
+        "printTemp": "220-250°C",
+        "bedTemp": "80-110°C",
+        "density": "1.04 g/cm³",
+        "tensileStrength": "40 MPa",
+        "flexuralStrength": "65 MPa",
+        "heatDeflection": "98°C"
+      },
+      "advantages": [
+        "Alta resistencia al impacto",
+        "Resistente al calor",
+        "Mecanizable post-impresión",
+        "Soldable químicamente",
+        "Buena resistencia química"
+      ],
+      "disadvantages": [
+        "Emite vapores durante impresión",
+        "Requiere cama caliente",
+        "Tendencia al warping",
+        "Necesita ventilación"
+      ],
+      "applications": [
+        "Carcasas electrónicas",
+        "Herramientas y moldes",
+        "Piezas automotrices",
+        "Componentes mecánicos",
+        "Prototipos funcionales"
+      ],
+      "colors": ["Negro", "Blanco", "Gris", "Azul", "Rojo"],
+      "pricePerKg": 35
+    },
+    "petg": {
+      "id": "petg",
+      "name": "PETG (Polietileno Tereftalato Glicol)",
+      "type": "Termoplástico químicamente resistente",
+      "description": "Combina la facilidad del PLA con la resistencia del ABS. Transparente y apto para contacto alimentario.",
+      "properties": {
+        "printTemp": "220-250°C",
+        "bedTemp": "70-90°C",
+        "density": "1.27 g/cm³",
+        "tensileStrength": "50 MPa",
+        "flexuralStrength": "70 MPa",
+        "heatDeflection": "70°C"
+      },
+      "advantages": [
+        "Transparente",
+        "Resistencia química",
+        "Apto para alimentos (FDA)",
+        "Fácil de imprimir",
+        "Reciclable"
+      ],
+      "disadvantages": [
+        "Se adhiere fuertemente",
+        "Sensible a la velocidad",
+        "Puede cristalizar",
+        "Precio más alto"
+      ],
+      "applications": [
+        "Contenedores alimentarios",
+        "Dispositivos médicos",
+        "Paneles transparentes",
+        "Piezas químicamente resistentes",
+        "Prototipos visuales"
+      ],
+      "colors": ["Transparente", "Blanco", "Negro", "Azul", "Verde"],
+      "pricePerKg": 45
+    },
+    "tpu": {
+      "id": "tpu",
+      "name": "TPU (Poliuretano Termoplástico)",
+      "type": "Elastómero termoplástico",
+      "description": "Material flexible y elástico, ideal para aplicaciones que requieren flexibilidad y resistencia al desgaste.",
+      "properties": {
+        "printTemp": "210-230°C",
+        "bedTemp": "50-70°C",
+        "density": "1.20 g/cm³",
+        "shoreHardness": "85A-95A",
+        "elongation": "300-600%",
+        "tensileStrength": "35 MPa"
+      },
+      "advantages": [
+        "Altamente flexible",
+        "Resistente al desgaste",
+        "Buena resistencia química",
+        "Resistente a aceites",
+        "Amortiguación de vibraciones"
+      ],
+      "disadvantages": [
+        "Velocidad de impresión lenta",
+        "Difícil de post-procesar",
+        "Requiere configuración especial",
+        "Puede atascar extrusor"
+      ],
+      "applications": [
+        "Carcasas de teléfonos",
+        "Juntas y sellos",
+        "Calzado deportivo",
+        "Componentes automotrices",
+        "Productos wearables"
+      ],
+      "colors": ["Negro", "Transparente", "Rojo", "Azul", "Blanco"],
+      "pricePerKg": 55
+    },
+    "resin": {
+      "id": "resin",
+      "name": "Resina Fotopolimérica",
+      "type": "Resina líquida fotocurable",
+      "description": "Material para impresión SLA/DLP con máxima precisión y acabado superficial excepcional.",
+      "properties": {
+        "cureTime": "2-8 segundos/capa",
+        "layerHeight": "0.01-0.2mm",
+        "density": "1.15 g/cm³",
+        "tensileStrength": "45-65 MPa",
+        "flexuralStrength": "75-100 MPa",
+        "elongation": "3-8%"
+      },
+      "advantages": [
+        "Máxima precisión",
+        "Acabado superficial liso",
+        "Detalles extremadamente finos",
+        "Variedad de propiedades",
+        "Colores vibrantes"
+      ],
+      "disadvantages": [
+        "Requiere post-procesado UV",
+        "Tóxica antes del curado",
+        "Frágil una vez curada",
+        "Requiere ventilación",
+        "Almacenamiento especial"
+      ],
+      "applications": [
+        "Joyería y accesorios",
+        "Miniaturas detalladas",
+        "Prototipos de precisión",
+        "Modelos dentales",
+        "Arte y escultura"
+      ],
+      "colors": ["Gris", "Negro", "Transparente", "Blanco", "Rojo", "Azul"],
+      "pricePerLiter": 65
+    }
+  },
+  "printers": {
+    "prusa-i3": {
+      "id": "prusa-i3",
+      "name": "Prusa i3 MK3S+",
+      "technology": "FDM",
+      "buildVolume": "250×210×210mm",
+      "status": "active",
+      "materials": ["PLA", "ABS", "PETG", "TPU"],
+      "features": ["Auto-leveling", "Filament sensor", "Power recovery"]
+    },
+    "ultimaker-s3": {
+      "id": "ultimaker-s3",
+      "name": "Ultimaker S3",
+      "technology": "FDM",
+      "buildVolume": "230×190×200mm",
+      "status": "active", 
+      "materials": ["PLA", "ABS", "PETG", "TPU", "Nylon"],
+      "features": ["Dual extrusion", "Air filtration", "NFC material detection"]
+    },
+    "formlabs-form3": {
+      "id": "formlabs-form3",
+      "name": "Formlabs Form 3",
+      "technology": "SLA",
+      "buildVolume": "145×145×185mm",
+      "status": "active",
+      "materials": ["Standard Resin", "Tough Resin", "Flexible Resin"],
+      "features": ["Low Force Stereolithography", "Automatic resin dispensing"]
+    }
+  },
+  "config": {
+    "businessHours": "9:00 AM - 6:00 PM",
+    "deliveryTime": "3-7 días laborales",
+    "minimumOrder": 25,
+    "currency": "USD",
+    "taxRate": 0.19
+  }
+}

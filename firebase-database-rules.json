@@ -1,36 +1,38 @@
 {
   "rules": {
+    ".read": true,
+    ".write": false,
     "materials": {
       ".read": true,
-      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+      ".write": false
     },
     "printers": {
       ".read": true,
-      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+      ".write": false
     },
     "orders": {
-      ".read": "auth != null && (auth.uid === 'admin' || root.child('config/roles_admin').child(auth.uid).val() === true)",
-      ".write": "auth != null",
-      "$orderId": {
-        ".read": true,
-        ".write": "auth != null"
-      }
+      ".read": true,
+      ".write": true
     },
     "orderLookup": {
       ".read": true,
-      ".write": "auth != null"
+      ".write": true
     },
     "config": {
-      ".read": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true",
-      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+      ".read": true,
+      ".write": false
     },
     "catalog": {
       ".read": true,
-      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+      ".write": false
     },
     "services": {
       ".read": true,
-      ".write": "auth != null && root.child('config/roles_admin').child(auth.uid).val() === true"
+      ".write": false
+    },
+    "products": {
+      ".read": true,
+      ".write": false
     }
   }
 }
